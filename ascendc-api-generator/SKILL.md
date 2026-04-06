@@ -50,8 +50,9 @@ This skill automates the process of implementing AscendC API simulations by:
 4. Integrate Specs        → api_parser.py merges and generates integrated spec
 5. Classify API           → Match to template: binary/unary/copy/reduce/complex
 6. Generate Design        → Output design spec to docs/superpowers/specs/
-7. Generate Plan          → Output implementation plan to docs/superpowers/plans/
-8. Track Progress         → Use TaskCreate/TaskUpdate for progress tracking
+7. Create Worktree        → Use superpowers:using-git-worktrees for isolated implementation
+8. Generate Plan          → Output implementation plan to docs/superpowers/plans/
+9. Track Progress         → Use TaskCreate/TaskUpdate for progress tracking
 ```
 
 ## Input Format
@@ -252,9 +253,11 @@ Commits:
 After generating design and plan:
 
 1. **User reviews design spec** → Must approve before proceeding
-2. **Invoke implementation** → Use superpowers:subagent-driven-development
-3. **Track progress** → Update tasks as each step completes
-4. **Final verification** → Run tests, verify interface consistency
+2. **Create worktree** → Use superpowers:using-git-worktrees for isolated implementation workspace
+3. **Generate implementation plan** → Use superpowers:writing-plans skill (in worktree context)
+4. **Invoke implementation** → Use superpowers:subagent-driven-development (in worktree)
+5. **Track progress** → Update tasks as each step completes
+6. **Final verification** → Run tests, verify interface consistency
 
 ## External References
 
